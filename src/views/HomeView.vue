@@ -33,7 +33,7 @@ export default {
   <main>
     <HeroSection :projetos="maloca.projetos" />
     <AboutSection :malocainfo="maloca" />
-    <DestaqueSection />
+    <DestaqueSection :projetos="maloca.projetos"/>
     <ProjetosSection :projetos="maloca.projetos"/>
     <EquipeSection :time="maloca.team"/>
     <NewsletterSection />

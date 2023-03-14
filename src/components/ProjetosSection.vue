@@ -37,8 +37,8 @@ export default {
       <div class="row g-4">
         <div v-for="item in projects" :key="item.id" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="room-item shadow rounded overflow-hidden">
-            <div class="position-relative">
-              <img class="img-fluid" :src="item.img" alt="" />
+            <div class="position-relative image-block">
+              <img class="img-fluid py-3" :src="item.img" alt="" />
               <small
                 class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
                 >{{item.tipo}}</small
@@ -64,9 +64,9 @@ export default {
                   >{{item.idade}}</small
                 >
               </div>
-              <p class="text-body mb-3">{{item.frase}}</p>
+              <p class="text-body mb-3">{{item.sobre}}</p>
               <div class="d-flex justify-content-between">
-                <router-link :to="'/trampo/'+item._id" class="btn btn-sm btn-primary rounded py-2 px-4"
+                <router-link :to="'/trampo/'+item.id" class="btn btn-sm btn-primary rounded py-2 px-4"
                   >ver mais
                 </router-link>
               </div>
@@ -78,3 +78,14 @@ export default {
   </div>
 </template>
 
+<style scoped>
+.room-item img{
+    max-height: 300px ;
+}
+
+.image-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>

@@ -29,7 +29,8 @@ const router = createRouter({
         },
         {
           path: '/trampo/:id',
-          component: ProjectDetailView
+          component: ProjectDetailView,
+          props: true
         },
         {
           path: '/qualfoi',

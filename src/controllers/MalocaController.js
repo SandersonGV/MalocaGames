@@ -9,10 +9,6 @@ export class MalocaController {
         this.info = this.malocaService.getInfo()
         return this.info;
     }
-    getServices(){
-        this.services = this.malocaService.getServices()
-        return this.services;
-    }
     getProjects(){
         this.projects = this.malocaService.getProjects()
         return this.projects;

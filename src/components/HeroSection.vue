@@ -28,16 +28,18 @@ export default {
       >
         <div class="carousel-inner">
           <div v-for="item,index in destaques" :key="index" :class="'carousel-item '+ (index==0 ? 'active':'') ">
-                          <img class="w-100" :src="item.img" alt="" />
-                          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                              <div class="p-3" >
-                                  <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{{item.nome}}</h6>
-                                  <h1 class="display-3 text-white mb-4 animated slideInDown">{{item.frase}}</h1>
-                                  <router-link to="/trampos"  href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Nossos Projetos</router-link>
-                                  <router-link :to="'/trampo/'+item._id" href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Conheça este Projeto</router-link>
-                              </div>
-                          </div>
-                      </div>
+              <div class="image-block">
+                <img class="h-100 py-5" :src="item.img" alt="" />
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" >
+                        <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{{item.nome}}</h6>
+                        <h1 class="display-3 text-white mb-4 animated slideInDown">{{item.frase}}</h1>
+                        <router-link to="/trampos"  href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Nossos Projetos</router-link>
+                        <router-link :to="'/trampo/'+item.id" href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Conheça este Projeto</router-link>
+                    </div>
+                </div>
+              </div>
+          </div>
         </div>
         <button
           class="carousel-control-prev"
@@ -61,3 +63,10 @@ export default {
     </div>
 </template>
 
+<style scoped>
+.image-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>

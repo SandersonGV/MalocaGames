@@ -14,7 +14,7 @@ export default {
                 <div class="col-lg-6">
                     <h6 class="section-title text-start text-primary text-uppercase">Sobre nós</h6>
                     <h1 class="mb-4">Bem vindos à <span class="text-primary text-uppercase">{{malocainfo?.info?.titulo}}</span></h1>
-                    <p class="mb-4">{{malocainfo?.info?.frase}}</p>
+                    <p class="mb-4">{{malocainfo?.info?.sobre}}</p>
                     <div class="row g-3 pb-4">
                         <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
                             <div class="border rounded p-1">

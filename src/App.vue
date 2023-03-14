@@ -19,7 +19,6 @@ export default {
   methods: {
     loadMalocainfo: async function () {
       this.maloca.info = await this.malocaController.getInfo();
-      this.maloca.servicos = await this.malocaController.getServices();
       this.maloca.projetos  = await this.malocaController.getProjects();
       this.maloca.team = await this.malocaController.getTeam();
       this.maloca.partners = [];

@@ -45,14 +45,12 @@ export default {
                   align-items-center
                 "
               >
-                <a
-                  v-for="itemSocial, indexSocial in item.social"
-                  :key="indexSocial"
-                  class="btn btn-square btn-primary mx-1"
-                  :href="itemSocial.url"
-                  target="_black"
-                  ><i :class="itemSocial.icone"></i
-                ></a>
+               
+                <a v-show="item.instagram!=''" class="btn btn-square btn-primary mx-1" target="_blank" :href="item?.instagram"><i class="fab fa-instagram"></i></a>        
+                <a v-show="item.linkedin!=''" class="btn btn-square btn-primary mx-1" target="_blank" :href="item?.linkedin"><i class="fab fa-linkedin"></i></a>        
+                <a v-show="item.facebook!=''" class="btn btn-square btn-primary mx-1" target="_blank" :href="item?.facebook"><i class="fab fa-facebook"></i></a>        
+
+
               </div>
             </div>
             <div class="text-center p-4 mt-3">

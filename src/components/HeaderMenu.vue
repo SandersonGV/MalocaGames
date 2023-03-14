@@ -29,7 +29,10 @@ export default {
                         </div>
                         <div class="col-lg-5 px-5 text-end">
                             <div class="d-inline-flex align-items-center py-2">
-                                <a v-for="item in malocainfo?.social" :key="item.id" class="me-3" target="_blank" :href="item.url"><i :class="item.icone"></i></a>
+                                <a v-show="malocainfo.instagram!=''" class="me-3" target="_blank" :href="malocainfo?.instagram"><i class="fab fa-instagram"></i></a>        
+                                <a v-show="malocainfo.telegram!=''" class="me-3" target="_blank" :href="malocainfo?.telegram"><i class="fab fa-telegram"></i></a>        
+                                <a v-show="malocainfo.whatsapp!=''" class="me-3" target="_blank" :href="malocainfo?.whatsapp"><i class="fab fa-whatsapp"></i></a>        
+                                <a v-show="malocainfo.youtube!=''" class="me-3" target="_blank" :href="malocainfo?.youtube"><i class="fab fa-youtube"></i></a>        
                             </div>
                         </div>
                     </div>
