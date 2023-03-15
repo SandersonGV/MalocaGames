@@ -49,16 +49,16 @@ export default {
                 <div class="col-lg-6">
                     <div class="row g-3">
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-75 wow zoomIn mt-5" data-wow-delay="0.1s" src="img/about-3.png"  alt=""/>
+                            <img class="img-fluid rounded w-75 wow zoomIn mt-5" data-wow-delay="0.1s" src="/src/assets/img/about-3.png"  alt=""/>
                         </div>
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="img/about-2.png" alt=""/>
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="/src/assets/img/about-2.png" alt=""/>
                         </div>
                         <div class="col-6 text-end">
-                            <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="img/about-4.png" alt=""/>
+                            <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="/src/assets/img/about-4.png" alt=""/>
                         </div>
                         <div class="col-6 text-start">
-                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="img/about-1.png" alt=""/>
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="/src/assets/img/about-1.png" alt=""/>
                         </div>
                     </div>
                 </div>
