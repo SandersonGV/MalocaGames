@@ -27,6 +27,7 @@ export default {
                         <h6 class="section-title text-start text-white text-uppercase mb-3">Ultimo Lançamento</h6>
                         <h1 class="text-white mb-4">{{projeto.nome}}</h1>
                         <p class="text-white mb-4">{{projeto.frase}}</p>
+                        <router-link :to="'/trampo/'+projeto.id" class="btn btn-primary py-md-3 px-md-5 me-3">Conheça este Projeto</router-link>
                         <a target="_blank" :href="projeto.linkcompra" class="btn btn-primary py-md-3 px-md-5 me-3">Comprar</a>
                     </div>
                 </div>
@@ -50,7 +51,7 @@ export default {
                     <div class="modal-body">
                         <!-- 16:9 aspect ratio -->
                         <div class="ratio ratio-16x9">
-                            <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            <iframe class="embed-responsive-item" :src="projeto.videos" id="video" allowfullscreen allowscriptaccess="always"
                                 allow="autoplay" title=""></iframe>
                         </div>
                     </div>

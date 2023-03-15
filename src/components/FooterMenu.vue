@@ -23,7 +23,7 @@ export default {
             </p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <h6 class="section-title text-start text-primary text-uppercase mb-4">
             Contato
           </h6>
@@ -46,7 +46,7 @@ export default {
             ></a>
           </div>
         </div>
-        <div class="col-lg-5 col-md-12">
+        <div class="col-lg-4 col-md-12">
           <div class="row gy-5 g-4">
             <div class="col-md-6">
               <h6
@@ -58,26 +58,10 @@ export default {
               >
                 Empresa
               </h6>
-              <a class="btn btn-link" >Sobre nós</a>
-              <a class="btn btn-link" >Entre em contato</a>
+              <router-link to="/equipe" class="btn btn-link">Sobre nós</router-link>
+              <router-link to="/qualfoi" class="btn btn-link">Entre em contato</router-link>
             </div>
-            <div class="col-md-6">
-              <h6
-                class="
-                  section-title
-                  text-start text-primary text-uppercase
-                  mb-4
-                "
-              >
-                Serviços
-              </h6>
-              <router-link to="/"
-                class="btn btn-link"
-                v-for="item in malocainfo?.servicos"
-                :key="item.id"
-                >{{ item.nome }}</router-link
-              >
-            </div>
+
           </div>
         </div>
       </div>

@@ -12,7 +12,8 @@ export default {
             <div class="row gx-0">
                 <div class="col-lg-3 bg-dark d-none d-lg-block">
                 <router-link to="/" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                    <h1 class="m-0 text-primary text-uppercase">{{malocainfo?.titulo}}</h1>
+                    
+                    <img class=" p-2"  :src="malocainfo?.logo" alt=""/>
                 </router-link>
                 </div>
                 <div class="col-lg-9">
@@ -33,6 +34,7 @@ export default {
                                 <a v-show="malocainfo.telegram!=''" class="me-3" target="_blank" :href="malocainfo?.telegram"><i class="fab fa-telegram"></i></a>        
                                 <a v-show="malocainfo.whatsapp!=''" class="me-3" target="_blank" :href="malocainfo?.whatsapp"><i class="fab fa-whatsapp"></i></a>        
                                 <a v-show="malocainfo.youtube!=''" class="me-3" target="_blank" :href="malocainfo?.youtube"><i class="fab fa-youtube"></i></a>        
+                                <a v-show="malocainfo.twitter!=''" class="me-3" target="_blank" :href="malocainfo?.twitter"><i class="fab fa-twitter"></i></a>        
                             </div>
                         </div>
                     </div>
@@ -57,3 +59,8 @@ export default {
         </div>
 </template>
 
+<style scoped>
+.navbar-brand img{
+    height: 110px;
+}
+</style>

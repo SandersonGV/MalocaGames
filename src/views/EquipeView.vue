@@ -1,11 +1,11 @@
 <script>
 import NewsletterSection from '../components/NewsletterSection.vue'
-import EquipeSection from '../components/EquipeSection.vue'
+import EquipeDetailSection from '../components/EquipeDetailSection.vue'
 import { DataStorage } from "../helpers/DataStorage"
 
 export default {
     components:{
-      EquipeSection,
+      EquipeDetailSection,
       NewsletterSection,
     },
     data: function () {
@@ -23,7 +23,7 @@ export default {
 
 <template>
   <main>
-    <EquipeSection :time="maloca.team"/>
+    <EquipeDetailSection :time="maloca.team"/>
     <NewsletterSection />
   </main>
 </template>
