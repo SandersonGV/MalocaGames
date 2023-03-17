@@ -4,7 +4,8 @@ export class BaseSevice {
         this.apikey = apikey;
         this.spreadsheetId = spreadsheetId;
         this.get = async (url, params) => {
-            let result = await fetch(this.baseurl + url, {
+            let version = "&v="+new Date().getMilliseconds()
+            let result = await fetch(this.baseurl + url+version, {
                 method: 'GET',
             })
             return await result.json()

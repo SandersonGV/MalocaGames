@@ -48,7 +48,7 @@ export default {
               <div class="d-flex justify-content-between mb-3">
                 <h5 class="mb-0">{{item.nome}}</h5>
                 <div class="ps-2" >
-                  <small class="fa fa-star text-primary" v-for="item,index in Array(item.complexidade).fill()" :key="index"></small>
+                  <small class="fa fa-star text-primary" v-for="item,index in Array(parseInt(item.complexidade)).fill()" :key="index"></small>
                 </div>
               </div>
               <div class="d-flex mb-3">

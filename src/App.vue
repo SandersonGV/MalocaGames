@@ -23,7 +23,7 @@ export default {
       this.maloca.team = await this.malocaController.getTeam();
       this.maloca.partners = [];
 
-      this.dataStorage.save( {id:"maloca", data: this.maloca} );
+      this.dataStorage.create( {id:"maloca", data: this.maloca} );
 
       this.loading=false;
     },

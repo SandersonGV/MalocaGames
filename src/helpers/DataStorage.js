@@ -12,6 +12,10 @@ export class DataStorage {
     }
   
     create(item) {
+      let myitem = this.get(item.id)
+      if (myitem)
+        this.delete(item.id)
+
       let items = this.getAll();
       items.push(item);
       localStorage.setItem(this.key, JSON.stringify(items));
