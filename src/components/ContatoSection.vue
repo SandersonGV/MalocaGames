@@ -1,20 +1,75 @@
 <script>
+import {ContactController} from '../controllers/ContactController'
+import Swal from 'sweetalert2'
 
 export default {
   props: {
   },
    data() {
     return {
-      name:"",
-      email:"",
-      subject:"",
-      message:"",
+        enviando:false,
+        contactController : new ContactController(),
+        name:"",
+        email:"",
+        subject:"",
+        message:"",
+        toast:{}
     };
   },
   methods: {
-    enviarMensagem: function () {
-        console.log(this.name,this.email,this.subject,this.message)
+    async enviarMensagem() {
+        let msgerror =""
+        this.enviando = true;
+        if(!this.name||false || !this.email||false || !this.subject||false || !this.message||false)
+            msgerror = "Todos os campos devem ser preenchidos"
+
+        if(msgerror=="" && !this.validarEmail(this.email)){
+            msgerror = "Preencha um email válido"
+        }
+        if(msgerror!=""){
+            await this.toast.fire({
+                icon: 'error',
+                title: msgerror
+            })
+            this.enviando = false;
+
+            return; 
+        }
+
+        let result = await this.contactController.sendMessage(this.name,this.email,this.subject,this.message);
+
+        if(!result){
+            await this.toast.fire({
+                icon: 'warning',
+                title: 'ocorreu um erro no servidor, tente novamente mais tarde'
+            })
+        }
+
+        await this.toast.fire({
+            icon: 'success',
+            title: 'Email registrado com sucesso'
+        })
+        this.enviando = false;
+        this.name =this.email =this.subject =this.message =""
     },
+
+    validarEmail(email) {
+        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        return regex.test(email);
+    }
+  },    
+  async mounted() {
+    this.toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
   },
 }
 </script>
@@ -50,7 +105,7 @@ export default {
                         class="position-relative rounded w-100 h-100"
                         frameborder="0" allowfullscreen="" aria-hidden="false"
                         loading="lazy" tabindex="0"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        referrerpolicy="no-referrer-when-downgrade" title="local">
 
                         </iframe>
                     </div>
@@ -82,7 +137,7 @@ export default {
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" @click="enviarMensagem"><i class="far fa-paper-plane"></i> Enviar mensagem</button>
+                                        <button class="btn btn-primary w-100 py-3" :disabled="enviando" @click="enviarMensagem"><i class="far fa-paper-plane"></i> {{ enviando?'Enviando':'Enviar' }} mensagem</button>
                                     </div>
                                 </div>
                         </div>

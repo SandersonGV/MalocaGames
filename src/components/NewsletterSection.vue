@@ -1,5 +1,6 @@
 <script>
-import mailchimp  from '@mailchimp/mailchimp_marketing'
+import {NewsletterController} from '../controllers/NewsletterController'
+import Swal from 'sweetalert2'
 
 export default {
   props:{
@@ -7,16 +8,52 @@ export default {
   },
   data() {
     return {
-      team: []
+      newsletterController : new NewsletterController(),
+      email : "",
+      toast:{}
     };
   },
+  methods: {
+    async enviarInscrito(){
+        if(!this.validarEmail(this.email)){
+            this.toast.fire({
+                icon: 'error',
+                title: 'Preencha um email válido'
+            })
+            return; 
+        }
+        let result = await this.newsletterController.addEmail(this.email);
+
+        if(!result){
+            this.toast.fire({
+                icon: 'warning',
+                title: 'ocorreu um erro no servidor, tente novamente mais tarde'
+            })
+        }
+
+        this.toast.fire({
+            icon: 'success',
+            title: 'Email registrado com sucesso'
+        })
+    },
+    validarEmail(email) {
+        const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        return regex.test(email);
+    }
+
+  },    
   async mounted() {
-    await mailchimp.setConfig({
-        apiKey: process.env.VITE_APP_MAILCHIMP_API_KEY,
-        server: process.env.VITE_APP_MAILCHIMP_SERVER_PREFIX,
-    });
-    const response = await mailchimp.ping.get();
-    console.log(response);
+    this.toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
   },
 };
 </script>
@@ -30,8 +67,8 @@ export default {
                         <div class="bg-white rounded text-center p-5">
                             <h4 class="mb-4">Se inscreva para novidades <span class="text-primary text-uppercase">novidades</span></h4>
                             <div class="position-relative mx-auto" style="max-width: 400px;">
-                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Seu email aqui...">
-                                <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" v-model="email" placeholder="Seu email aqui...">
+                                <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2" @click="enviarInscrito">Submit</button>
                             </div>
                         </div>
                     </div>
