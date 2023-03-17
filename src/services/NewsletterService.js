@@ -11,7 +11,7 @@ export class NewsletterService extends BaseSevice {
     addEmail = async (email) => {
         let param ={
             email:email,
-            nome:"",
+            nome:"Maloqueir@",
             data: new Date().toLocaleDateString()
         }
         let data = await this.post(`site`,param)
