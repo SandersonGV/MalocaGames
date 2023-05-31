@@ -38,7 +38,7 @@ export default {
         <div v-for="item in projects" :key="item.id" class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
           <div class="room-item shadow rounded overflow-hidden">
             <div class="position-relative image-block">
-              <img class="img-fluid py-3" :src="item.img" alt="" />
+              <img class="img-fluid py-3" :src="item.capa" alt="" />
               <small
                 class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4"
                 >{{item.tipo}}</small

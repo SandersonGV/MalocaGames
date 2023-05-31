@@ -32,7 +32,7 @@ export default {
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="video" :style="'background-image: url('+projeto.img +');'">
+                    <div class="video" :style="'background-image: url('+projeto.capa +');'">
                         <button type="button" class="btn-play"  data-bs-toggle="modal" :data-src="projeto.videos" data-bs-target="#videoModal">
                             <span></span>
                         </button>

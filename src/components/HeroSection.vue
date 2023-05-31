@@ -29,7 +29,7 @@ export default {
         <div class="carousel-inner">
           <div v-for="item,index in destaques" :key="index" :class="'carousel-item '+ (index==0 ? 'active':'') ">
               <div class="image-block">
-                <img class="h-100 py-5" :src="item.img" alt="" />
+                <img class="h-100 py-5" :src="item.capa" alt="" />
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" >
                         <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">{{item.nome}}</h6>

@@ -35,6 +35,7 @@ export default {
                                 <a v-show="malocainfo.whatsapp!=''" class="me-3" target="_blank" :href="malocainfo?.whatsapp"><i class="fab fa-whatsapp"></i></a>        
                                 <a v-show="malocainfo.youtube!=''" class="me-3" target="_blank" :href="malocainfo?.youtube"><i class="fab fa-youtube"></i></a>        
                                 <a v-show="malocainfo.twitter!=''" class="me-3" target="_blank" :href="malocainfo?.twitter"><i class="fab fa-twitter"></i></a>        
+                                <a v-show="malocainfo.linkedin!=''" class="me-3" target="_blank" :href="malocainfo?.linkedin"><i class="fab fa-linkedin"></i></a>        
                             </div>
                         </div>
                     </div>

@@ -15,6 +15,12 @@ export class MalocaService extends BaseSevice {
     }
     getProjects = async () => {
         let data = await this.get(`projetos${this.query}`)
+        data.results = data.results.map(o =>{
+            let imagens = o.img.split(',')
+            o.capa = imagens[0]
+            o.img = imagens
+            return o;
+        })
         return data.results;
     }
     getTeam = async () => {
