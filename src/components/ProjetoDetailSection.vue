@@ -12,7 +12,6 @@ export default {
   },
   methods: {
     openImge(imgUrl){
-        console.log(imgUrl)
         this.bigImage = imgUrl
         let element = this.$refs.ImageModal
         $(element).modal('show')
@@ -20,7 +19,6 @@ export default {
   },
   async mounted() {
     this.projeto = this.projetos.find(element => element.id == this.id)
-    console.log(this.projeto)
   },
 };
 </script>
